@@ -13,11 +13,29 @@ if(isset($_POST['register'])){
 	$phonenumber = $_POST['pnumber'];
 	$psword = $_POST['password'];
 }
-$sql = mysqli_query($connect,"INSERT INTO register(username,email,pnumber,password) VALUES ('$uname','$email','$phonenumber','$psword')");
-if($sql==True){
-	echo "Data Inserted ";
-}
+$sql = mysqli_query($connect,"INSERT INTO register(username,email,pnumber,password) VALUES ('$uname','$email','$phonenumber','$psword') ");
+	if($sql==True){
+		echo " ";
+	}
+	else{
+		echo "Insertion Error";
+	}
+$query = mysqli_query($connect,"SELECT * FROM user_login WHERE email = '$email' and password = '$psword' ");
+	if(mysqli_num_rows($query)>0)
+	{
+		echo "Login Successful";
+	}
 else{
-	echo "Insertion Error";
-}
+	$sql1 = mysqli_query($connect, "INSERT INTO user_login (email,password) VALUES ('$email','$psword') ");
+		if($sql1==True){
+			echo "Data Inserted";
+		}
+		else{
+			echo "Error";
+		}
+	} 
+
+
+
+
 ?>
