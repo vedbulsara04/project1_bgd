@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <!doctype html>
     <html lang="en">
     <head>
@@ -9,7 +10,6 @@
         <title>Employee Info</title>
     </head>
     <body style="background-color:lightgrey;">
-        <?php include 'doheader.php ' ?>
         <div class="col p-3 px-3 bg-light my-2 mx-1 rounded">
             <div class="container mt-4">
                 <h2>Employee Info</h2>
@@ -25,6 +25,7 @@
                         <th>Role</th>
                         <th>Employee Id</th>
                         <th>Department Id</th>
+                        <th>Status</th>
                         <th>Created at</th>
                         <th>Updated at</th>
                         <th>Actions</th>
@@ -32,6 +33,17 @@
                     </thead>
                     <?php
 include 'connect_db.php';
+
+if(isset($_POST['status'])){
+    $stat=$_POST['status'];
+    $sql="INSERT INTO `employee`(`status`)VALUES('$stat')";
+    if(mysqli_query($conn,$sql)){
+        echo "INSERTED";
+    }
+    else{
+        echo "Not INSERTED";
+    }
+}
 
 $records = mysqli_query($conn,"SELECT * FROM employee");
 while($data = mysqli_fetch_array($records)){
@@ -45,10 +57,21 @@ while($data = mysqli_fetch_array($records)){
         <td><?php echo $data['role'];?></td>
         <td><?php echo $data['emp_id'];?></td>
         <td><?php echo $data['dept_id'];?></td>
+        <td><?php echo $data['status'];?></td>
         <td><?php echo $data['created_at'];?></td>
         <td><?php echo $data['updated_at'];?></td>
-        <td><a href="edit_empl.php?id=<?php echo $data['id'];?>"><button>Edit</button></a>
-        <a href="delete_empl.php?id=<?php echo $data['id'];?>"><button>Delete</button></a></td>  
+        
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Actions
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="edit_empl.php?id=<?php echo $data['id'];?>">Edit</a></li>
+                  <li><a class="dropdown-item" href="delete_empl.php?id=<?php echo $data['id'];?>">Delete</a></li>                                  
+                </ul>
+              </div>
+        </td>  
     </tr>
 <?php
 }

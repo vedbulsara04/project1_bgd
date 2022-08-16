@@ -20,13 +20,13 @@ $sql = mysqli_query($connect,"INSERT INTO register(username,email,pnumber,passwo
 	else{
 		echo "Insertion Error";
 	}
-$query = mysqli_query($connect,"SELECT * FROM user_login WHERE email = '$email' and password = '$psword' ");
+$query = mysqli_query($connect,"SELECT * FROM register WHERE email = '$email' and password = '$psword' ");
 	if(mysqli_num_rows($query)>0)
 	{
 		echo "Login Successful";
 	}
 else{
-	$sql1 = mysqli_query($connect, "INSERT INTO user_login (email,password) VALUES ('$email','$psword') ");
+	$sql1 = mysqli_query($connect, "INSERT INTO register (email,password) VALUES ('$email','$psword') ");
 		if($sql1==True){
 			echo "Data Inserted";
 		}

@@ -6,7 +6,7 @@ include 'connect_db.php';
 
 	if($del){
 		mysqli_close($conn);
-		header("location:add_depts.php");
+		header("location:add_dept1.php");
 		exit;
 	}
 	else{

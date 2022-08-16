@@ -9,8 +9,9 @@ if(isset($_POST['submit'])){
 	$role = $_POST['role'];
 	$e_id = $_POST['emp_id'];
 	$d_id = $_POST['dept_id'];
+	$stat = $_POST['status'];
 }
-$sql = mysqli_query($conn,"INSERT INTO employee(f_name, l_name, age, address, role, emp_id, dept_id) VALUES ('$fname', '$lname', '$age', '$address', '$role', '$e_id', '$d_id')");
+$sql = mysqli_query($conn,"INSERT INTO employee(f_name, l_name, age, address, role, emp_id, dept_id,status) VALUES ('$fname', '$lname', '$age', '$address', '$role', '$e_id', '$d_id','$stat')");
 if($sql==True){
 	echo "Data Inserted";
 }
