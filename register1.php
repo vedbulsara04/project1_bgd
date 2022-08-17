@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -53,12 +53,12 @@
   </head>
   <body>
     <div class="text-center">
-      <form style="max-width:480px;margin:auto;">
-        <img class="mt-5 mb-4" src="imgs/bgd_logo.jpeg" alt="bgd_logo" height="76">
+      <form action="insert_register.php" method="POST" style="max-width:480px;margin:auto;">
+        <img class="mt-5 mb-4" src="logo.jpeg" alt="bgd_logo" height="76">
         <h5 class="mb-5">Register your account</h5>
-        <input type="text" id="username" class="form-control mb-3" placeholder=" Enter Name" required>
-        <input type="email" id="emailAddress" class="form-control mb-3" placeholder="Enter Email" required>
-        <input type="tel" id="phone" class="form-control mb-3" placeholder="Enter Phone No" pattern="[0-9]{10}" required>
+        <input type="text" name="username" id="username" class="form-control mb-3" placeholder=" Enter Name" required>
+        <input type="email" name="email" id="emailAddress" class="form-control mb-3" placeholder="Enter Email" required>
+        <input type="tel" name="pnumber" id="phone" class="form-control mb-3" placeholder="Enter Phone No" pattern="[0-9]{10}" required>
         <div class="input-group mb-3">
           <input name="password" type="password" value="" class="input form-control" id="password" placeholder="Enter Password" required="true" aria-label="password" aria-describedby="basic-addon1" required />
           <div class="input-group-append">
@@ -78,8 +78,8 @@
           </div>
         </div>
         <div class="d-grid mt-4">
-          <a href="" style="color: crimson;">Already Registered/Login</a>
-          <input type="submit"  value="Register" class="btn btn-primary btn-block" onClick="matchPassword();">
+          <a href="login.php" style="color: crimson;">Already Registered/Login</a>
+          <input type="submit" name="register" value="Register" class="btn btn-primary btn-block" onClick="matchPassword();">
         </div>
       </form>
     </div>

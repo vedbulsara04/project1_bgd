@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,9 +19,10 @@
     <div class="text-center">
 
       <form action= "login_backend.php" method="POST" style="max-width:480px;margin:auto;">
-        <img class="mt-5 mb-4" src="bgd.jpeg" alt="bgd_logo" height="76">
+        <img class="mt-5 mb-4" src="logo.jpeg" alt="bgd_logo" height="76">
         <h5 class="mb-5">Login to your account</h5>
 
+        <input type="text" id="emailAddress" name="username" class="form-control mb-3" placeholder="Enter Name" required>
         <input type="email" id="emailAddress" name="email" class="form-control mb-3" placeholder="Enter email" required>
         <div class="input-group" id="show_hide_password">
             <input type="password" id="psswd" name="password" class="form-control" placeholder="Enter password" required>
@@ -29,9 +31,9 @@
             </div>
         </div>
 
-        <div class="d-grid mt-4">
-          <button class="btn btn-primary btn-block">Login</button>
-
+        <div class="d-grid mt-4"> <a href = "doheader.php">
+          <button class="btn btn-primary btn-block" name="login">Login</button>
+        </a>  
         </div>
       </form>
 
